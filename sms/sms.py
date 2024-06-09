@@ -12,7 +12,7 @@ class BinNotificationSystem:
             'notify': 'n',
         }
         if action in commands:
-            print(f"Sending notification for {action} bin.")
+            print(f"Sending notification for {action} action.")
             self.serial_connection.write(commands[action].encode())
         else:
             print("Invalid or Error")
@@ -20,3 +20,12 @@ class BinNotificationSystem:
     def close(self):
         self.serial_connection.close()
         print("COMM Closed!")
+        
+if __name__ == "__main__":
+    port = "COM6"
+    baud_rate = 9600
+    bin_notification = BinNotificationSystem(port, baud_rate)
+    bin_notification.send_notification('start')
+    time.sleep(5)
+    bin_notification.send_notification('notify')
+    bin_notification.close()

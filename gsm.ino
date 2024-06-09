@@ -5,8 +5,8 @@ SoftwareSerial GSM(10, 11);
 String number = "+639483572088";
 
 const String notifyMessages[] = {
-    "Feather Care System Status: Online"
-    "Chicken with High Temperature Detected", 
+    "Feather Care System: Status is Online"
+    "Feather Care System: Chicken with High Temperature Detected!", 
 };
 
 void setup() {
