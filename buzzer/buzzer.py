@@ -13,11 +13,14 @@ def buzzer_on(buzzer_pin):
 def buzzer_off(buzzer_pin):
     GPIO.output(buzzer_pin, GPIO.LOW)
 
-def beep_buzzer(buzzer_pin, delay=0.5):
-    buzzer_on(buzzer_pin)
-    sleep(delay)
-    buzzer_off(buzzer_pin)
-    sleep(delay)
+def play_tone(buzzer_pin, frequency, duration):
+    period = 1.0 / frequency
+    cycles = int(duration * frequency)
+    for _ in range(cycles):
+        buzzer_on(buzzer_pin)
+        sleep(period / 2)
+        buzzer_off(buzzer_pin)
+        sleep(period / 2)
 
 def cleanup():
     GPIO.cleanup()
