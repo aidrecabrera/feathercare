@@ -1,4 +1,4 @@
-import buzzer
+from buzzer import buzzer
 
 def main():
     buzzer_pin = buzzer.setup_buzzer()
